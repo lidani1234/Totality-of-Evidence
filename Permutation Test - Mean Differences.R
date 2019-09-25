@@ -3,21 +3,21 @@ library("sas7bdat")
 all7 = read.sas7bdat(file="all7new.sas7bdat")
 all20 = read.sas7bdat(file="all20new.sas7bdat")
 
-#Study 7 treatment arm and outcome differences by patient
+#Study 7 treatment groups and outcome differences by patient
 arm7 = all7$arm
 WD7 = all7$ch6mwd
 walk7 = all7$chwalk
 climb7 = all7$chclimb
 descend7 = all7$chdescend
 
-#Study 20 treatment arm and outcome differences by patient
+#Study 20 treatment groups and outcome differences by patient
 arm20 = all20$ARM
 WD20 = all20$ch6mwd
 walk20 = all20$chWALK
 climb20 = all20$chclimb
 descend20 = all20$chdescend
 
-#Observed Z/t statistic (signs set so positive indicates improvement with Ataluren)
+#Observed Z/t statistic (signs set so positive indicates improvement with treatment)
 z1 = as.numeric(t.test(WD7 ~ arm7)$statistic)
 z2 = -as.numeric(t.test(walk7 ~ arm7)$statistic)
 z3 = -as.numeric(t.test(climb7 ~ arm7)$statistic)
